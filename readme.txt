@@ -43,3 +43,14 @@ Authorization: Bearer <your_api_key>
 Content-Type: application/json
 
 Implements JSON-RPC 2.0 methods: initialize, tools/list, tools/call
+
+== For MCP registries/marketplaces ==
+
+This repo includes a server.json manifest (official MCP registry format)
+declaring this as a REMOTE server with a per-installation templated URL,
+since every buyer runs their own instance on their own domain rather than
+one centrally hosted service. If a marketplace's "connect a GitHub repo"
+flow tries to build/deploy this repo directly as a standalone package, it
+will fail - this is not a buildable npm/PyPI/Docker package. Look for an
+"external server" / "remote URL" / "import server.json" style listing
+option instead.

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.gagsy/woocommerce-ops-mcp",
+  "title": "WooCommerce Ops MCP",
+  "description": "Expose WooCommerce store operations (orders, inventory, products, reports, cart recovery, sales & marketing) as MCP tools. Installed as a WordPress plugin on your own WooCommerce store - each installation runs on the buyer's own domain, not a centrally hosted service.",
+  "version": "1.0.0",
+  "websiteUrl": "https://github.com/gagsy/woocommerce-mco",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://{site_domain}/wp-json/wc-ops-mcp/v1/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer <your_api_key> - generate this under WooCommerce > Ops MCP after installing the plugin on your site",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ],
+      "variables": {
+        "site_domain": {
+          "description": "The domain of your own WordPress/WooCommerce site where this plugin is installed, e.g. mystore.com",
+          "isRequired": true
+        }
+      }
+    }
+  ]
+}
